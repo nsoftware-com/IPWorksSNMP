@@ -6,11 +6,12 @@ IPWorks SNMP 2022 libraries for the corresponding edition are required to run th
 
 ## Reference Documentation
 * [Java Edition](https://cdn.nsoftware.com/help/INH/java/)
-* [Javascript Edition](https://cdn.nsoftware.com/help/INH/js/)
 * [.NET Edition](https://cdn.nsoftware.com/help/INH/cs/)
+* [JavaScript Edition](https://cdn.nsoftware.com/help/INH/js/)
 * [Python Edition](https://cdn.nsoftware.com/help/INH/py/)
 * [PHP Edition](https://cdn.nsoftware.com/help/INH/php/)
 * [C++ Edition](https://cdn.nsoftware.com/help/INH/cpp/)
+* [Delphi Edition](https://cdn.nsoftware.com/help/INH/dlp/)
 * [macOS Edition](https://cdn.nsoftware.com/help/INH/mac/)
 * [iOS Edition](https://cdn.nsoftware.com/help/INH/mac/)
 

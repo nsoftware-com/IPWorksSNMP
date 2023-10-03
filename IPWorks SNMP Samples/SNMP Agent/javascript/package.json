@@ -8,7 +8,7 @@
   "main": "snmpagent.js",
   "dependencies": {
     "full-icu": "*",
-    "ipworkssnmp": "^22.0.8658"
+    "ipworkssnmp": "^22.0.8676"
   },
   "scripts": {
     "snmpagent": "node snmpagent.js"
