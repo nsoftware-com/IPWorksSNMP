@@ -1,5 +1,5 @@
 /*
- * IPWorks SNMP 2022 Java Edition - Sample Project
+ * IPWorks SNMP 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks SNMP in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -17,20 +17,20 @@ import ipworkssnmp.*;
 
 public class trapmgr {
 
-  Snmpagent agent;
-  Snmptrapmgr trapmgr;
+  SNMPAgent agent;
+  SNMPTrapMgr trapmgr;
 
   public trapmgr() {
 
     try {
-      agent = new Snmpagent();
+      agent = new SNMPAgent();
       agent.setLocalEngineId("MyEngine");
 
       System.out.println("Starting agent...");
       agent.setAcceptData(true);
 
-      trapmgr = new Snmptrapmgr();
-      trapmgr.addSnmptrapmgrEventListener(new TrapMgrEvents(this));
+      trapmgr = new SNMPTrapMgr();
+      trapmgr.addSNMPTrapMgrEventListener(new TrapMgrEvents(this));
 
       System.out.println("Starting trap manager...");
       trapmgr.setActive(true);
@@ -54,14 +54,14 @@ public class trapmgr {
 
   }
 
-  public void onTrap (SnmptrapmgrTrapEvent arg0) {
+  public void onTrap (SNMPTrapMgrTrapEvent arg0) {
     System.out.println("\r\n---- Trap received!");
     System.out.println("    Source address: " + arg0.sourceAddress);
     System.out.println("    Trap OID: " + arg0.trapOID);
     System.out.println("    Time stamp: " + String.valueOf(arg0.timeStamp));
   }
 
-  public void onGetUserPassword (SnmptrapmgrGetUserPasswordEvent arg0) {
+  public void onGetUserPassword (SNMPTrapMgrGetUserPasswordEvent arg0) {
 
     if (arg0.passwordType == 1) {
       System.out.println("\r\nVerifying authentication password for incoming secure trap.");
@@ -93,29 +93,37 @@ public class trapmgr {
 
 }
 
-class TrapMgrEvents implements SnmptrapmgrEventListener{
+class TrapMgrEvents implements SNMPTrapMgrEventListener{
   trapmgr instance;
 
   public TrapMgrEvents(trapmgr instance) {
     this.instance = instance;
   }
-
-  public void badPacket(SnmptrapmgrBadPacketEvent arg0) {}
-  public void cacheEntry(SnmptrapmgrCacheEntryEvent arg0) {}
-  public void checkEngine(SnmptrapmgrCheckEngineEvent arg0) {}
-  public void discoveryRequest(SnmptrapmgrDiscoveryRequestEvent arg0) {}
-  public void error(SnmptrapmgrErrorEvent arg0) {}
-  public void getUserPassword(SnmptrapmgrGetUserPasswordEvent arg0) {
+  public void badPacket(SNMPTrapMgrBadPacketEvent arg0) {}
+  public void cacheEntry(SNMPTrapMgrCacheEntryEvent arg0) {}
+  public void checkEngine(SNMPTrapMgrCheckEngineEvent arg0) {}
+  @Override
+  public void connected(SNMPTrapMgrConnectedEvent snmpTrapMgrConnectedEvent) {}
+  @Override
+  public void disconnected(SNMPTrapMgrDisconnectedEvent snmpTrapMgrDisconnectedEvent) {}
+  public void discoveryRequest(SNMPTrapMgrDiscoveryRequestEvent arg0) {}
+  public void error(SNMPTrapMgrErrorEvent arg0) {}
+  public void getUserPassword(SNMPTrapMgrGetUserPasswordEvent arg0) {
     instance.onGetUserPassword(arg0);
   }
-  public void getUserSecurityLevel(SnmptrapmgrGetUserSecurityLevelEvent arg0) {}
-  public void hashPassword(SnmptrapmgrHashPasswordEvent arg0) {}
-  public void informRequest(SnmptrapmgrInformRequestEvent arg0) {}
-  public void packetTrace(SnmptrapmgrPacketTraceEvent arg0) {}
-  public void trap(SnmptrapmgrTrapEvent arg0) {
+  public void getUserSecurityLevel(SNMPTrapMgrGetUserSecurityLevelEvent arg0) {}
+  public void hashPassword(SNMPTrapMgrHashPasswordEvent arg0) {}
+  public void informRequest(SNMPTrapMgrInformRequestEvent arg0) {}
+  public void packetTrace(SNMPTrapMgrPacketTraceEvent arg0) {}
+  @Override
+  public void SSLClientAuthentication(SNMPTrapMgrSSLClientAuthenticationEvent snmpTrapMgrSSLClientAuthenticationEvent) {}
+  @Override
+  public void SSLStatus(SNMPTrapMgrSSLStatusEvent snmpTrapMgrSSLStatusEvent) {}
+  public void trap(SNMPTrapMgrTrapEvent arg0) {
     instance.onTrap(arg0);
   }
 }
+
 class ConsoleDemo {
   private static BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
@@ -137,15 +145,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {

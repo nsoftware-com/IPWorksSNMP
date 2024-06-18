@@ -2,18 +2,18 @@
 The provided sample projects offer a concise yet effective demonstration of the components from IPWorks SNMP, showcasing their usage in a straightforward manner. While they are not intended to be complete applications, they serve as valuable illustrations of key features. To enhance clarity, error handling and checks are simplified, allowing users to focus on the core functionality.
 
 ## Requirements
-IPWorks SNMP 2022 libraries for the corresponding edition are required to run these samples.  Free download from: [https://www.nsoftware.com/ipworkssnmp](https://www.nsoftware.com/ipworkssnmp)
+IPWorks SNMP 2024 libraries for the corresponding edition are required to run these samples.  Free download from: [https://www.nsoftware.com/ipworkssnmp](https://www.nsoftware.com/ipworkssnmp)
 
 ## Reference Documentation
-* [Java Edition](https://cdn.nsoftware.com/help/INH/java/)
-* [.NET Edition](https://cdn.nsoftware.com/help/INH/cs/)
-* [JavaScript Edition](https://cdn.nsoftware.com/help/INH/js/)
-* [Python Edition](https://cdn.nsoftware.com/help/INH/py/)
-* [PHP Edition](https://cdn.nsoftware.com/help/INH/php/)
-* [C++ Edition](https://cdn.nsoftware.com/help/INH/cpp/)
-* [Delphi Edition](https://cdn.nsoftware.com/help/INH/dlp/)
-* [macOS Edition](https://cdn.nsoftware.com/help/INH/mac/)
-* [iOS Edition](https://cdn.nsoftware.com/help/INH/mac/)
+* [Java Edition](https://cdn.nsoftware.com/help/INJ/java/)
+* [.NET Edition](https://cdn.nsoftware.com/help/INJ/cs/)
+* [JavaScript Edition](https://cdn.nsoftware.com/help/INJ/js/)
+* [Python Edition](https://cdn.nsoftware.com/help/INJ/py/)
+* [PHP Edition](https://cdn.nsoftware.com/help/INJ/php/)
+* [C++ Edition](https://cdn.nsoftware.com/help/INJ/cpp/)
+* [Delphi Edition](https://cdn.nsoftware.com/help/INJ/dlp/)
+* [macOS Edition](https://cdn.nsoftware.com/help/INJ/mac/)
+* [iOS Edition](https://cdn.nsoftware.com/help/INJ/mac/)
 
 ## Sample Projects
 | Sample Project | Description |

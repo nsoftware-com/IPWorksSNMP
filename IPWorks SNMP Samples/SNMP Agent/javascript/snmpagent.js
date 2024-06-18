@@ -1,5 +1,5 @@
 /*
- * IPWorks SNMP 2022 JavaScript Edition - Sample Project
+ * IPWorks SNMP 2024 JavaScript Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks SNMP in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -39,7 +39,7 @@ async function main() {
 
   for (let i = 0; i < args.length; i++) {
     if (args[i].indexOf('-') === 0) {
-      if (args[i] === "-p") agent.setLocalPort(args[i + 1]);
+      if (args[i] === "-p") agent.setLocalPort(parseInt(args[i + 1]));
     }
   }
 

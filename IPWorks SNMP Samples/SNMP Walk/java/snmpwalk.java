@@ -1,5 +1,5 @@
 /*
- * IPWorks SNMP 2022 Java Edition - Sample Project
+ * IPWorks SNMP 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks SNMP in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -13,17 +13,19 @@
  */
 
 import java.io.*;
+
+import java.io.*;
 import ipworkssnmp.*;
 import java.io.*;
 
 public class snmpwalk {
 
-  Snmpagent agent;
-  Snmpmgr mgr;
+  SNMPAgent agent;
+  SNMPMgr mgr;
 
   public snmpwalk() {
     try {
-      mgr = new Snmpmgr();
+      mgr = new SNMPMgr();
       mgr.setActive(true);
       mgr.setTimeout(10);  //This will ensure that all operations are synchronous
 
@@ -73,7 +75,6 @@ public class snmpwalk {
 
 }
 
-
 class ConsoleDemo {
   private static BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
@@ -95,15 +96,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {
